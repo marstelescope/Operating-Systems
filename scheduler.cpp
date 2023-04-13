@@ -9,6 +9,8 @@
 #include <string>
 using namespace std; 
 
+// sample input: p0 2 6 p1 5 2 p2 1 8 p3 0 3 p4 4 4 TYPE
+
 double processCount = 0;
 double responseCount = 0;
 double turnaroundCount = 0;
