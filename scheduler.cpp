@@ -69,7 +69,7 @@ void scheduler::FCFS(){
 }
 
 void scheduler::preemptiveSJF(){
-	multimap<int, process> sortedProcesses; 
+    multimap<int, process> sortedProcesses; 
     for (auto &p: inputProcesses){
         // starting turnaround calculations
         turnaroundCount -= p.arrivalTime;
