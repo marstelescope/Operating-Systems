@@ -109,7 +109,7 @@ void scheduler::preemptiveSJF(){
             stopTime = currentTime + currentJob.executionTime;
         }
         else { 
-            // another process present before currentJob.executionTime can be added to currentTime
+            // another process present before currentJob.executionTime can be fully added to currentTime
             // we remove from currentTime how much has been executed, and insert again with updated value
             currentJob.executionTime -= (stopTime-currentTime);
             workingTime.insert(pair<int, process>(currentJob.executionTime, currentJob));
