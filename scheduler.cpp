@@ -12,9 +12,6 @@ using namespace std;
 // sample input: p0 2 6 p1 5 2 p2 1 8 p3 0 3 p4 4 4 TYPE
 
 double processCount = 0;
-double responseCount = 0;
-double turnaroundCount = 0;
-vector<string> accessedProcess;
 
 struct process{
     string processName;
@@ -24,12 +21,18 @@ struct process{
 
 class scheduler{
 	public:
-    vector <process>inputProcesses;
+    	vector <process>inputProcesses;
 	void FCFS();
 	void preemptiveSJF();
+	
+	private:
+	double responseCount = 0;
+	double turnaroundCount = 0;
+	vector<string> accessedProcess;
 };
 
-void scheduler::FCFS(){
+void scheduler::FCFS()
+{
     // using multimap since processes could have identical arrival times, aka duplicate keys
     multimap<int, process> sortedProcesses; 
     for (auto &p: inputProcesses){
@@ -68,7 +71,8 @@ void scheduler::FCFS(){
     cout << "Average turnaround time: " << turnaroundCount/processCount << " seconds" << endl;
 }
 
-void scheduler::preemptiveSJF(){
+void scheduler::preemptiveSJF()
+{
     multimap<int, process> sortedProcesses; 
     for (auto &p: inputProcesses){
         // starting turnaround calculations
