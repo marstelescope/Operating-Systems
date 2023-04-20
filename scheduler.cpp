@@ -14,7 +14,7 @@ using namespace std;
 double processCount = 0;
 
 struct process{
-    string processName;
+    	string processName;
 	int arrivalTime;
 	int executionTime;
 };
