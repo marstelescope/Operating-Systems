@@ -26,6 +26,8 @@ class scheduler{
 	void preemptiveSJF();
 	
 	private:
+	int currentTime = 0;
+    	int stopTime = 0;
 	double responseCount = 0;
 	double turnaroundCount = 0;
 	vector<string> accessedProcess;
@@ -40,9 +42,6 @@ void scheduler::FCFS()
         turnaroundCount -= p.arrivalTime; 
         sortedProcesses.insert(pair<int, process>(p.arrivalTime, p)); // sorted by arrival time
     }
-
-    int currentTime = 0;
-    int stopTime = 0;
 
     for (auto & p : sortedProcesses){
         process & pr = p.second;
@@ -79,9 +78,6 @@ void scheduler::preemptiveSJF()
         turnaroundCount -= p.arrivalTime;
         sortedProcesses.insert(pair<int, process>(p.arrivalTime, p)); // sorted by arrival time
     }
-
-    int currentTime = 0;
-    int stopTime = 0;
 
     // new map for time left for each process, sorted by remaining execution time
     multimap<int, process> workingTime; 
